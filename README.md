@@ -1,0 +1,17 @@
+<h3 align="center">👋 Olá! Bem-vindo ao Repositório da disciplina CCP120</h3>
+
+<h4 align="center">
+📚 programação fullstack | fei - ciência da computação | 💬 contato: <a href="https://www.linkedin.com/in/gustavobarsil/">@gustavobarsil</a>
+</h4>
+
+<p align="justify">
+  <samp>repositório dedicado à disciplina de programação fullstack (CCP120). aqui você encontrará exercícios, projetos e materiais de estudo relacionados à matéria.
+  </samp>
+  <br> <br>
+</p>
+
+<details> 
+  <summary><h2>🛠️ Ferramentas & Tecnologias</h2></summary>
+
+  ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+</details>
