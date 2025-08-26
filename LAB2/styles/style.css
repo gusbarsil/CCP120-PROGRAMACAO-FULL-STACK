@@ -1,0 +1,29 @@
+/* classe */
+.titulo{
+    color: blue;
+}
+/* id */
+#faculdadeId {
+    color: blue;
+}
+/* tag */
+p {
+    color: rgb(8, 50, 51);
+}
+
+.tituloTabela {
+    width: fit-content;
+    height: fit-content;
+    background-color: blue;
+    color: white;
+}
+/* hover */
+.tituloTabela:hover {
+    background-color: blueviolet;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
