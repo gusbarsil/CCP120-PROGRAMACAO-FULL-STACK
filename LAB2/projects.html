@@ -1,48 +1,308 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAB 2 - CCP120 | PROGRAMAÇÃO FULL STACK</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" href="../img/fei.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #006EAB;
+            --dark: #0f2027;
+            --light: #EBEBDC;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --table-bg: #f8f9fa;
+            --table-border: #dee2e6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--table-border);
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        h1.titulo {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        h2#faculdadeId {
+            font-size: 1.4rem;
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .student-info {
+            background: var(--table-bg);
+            border-radius: var(--radius);
+            padding: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-left: 4px solid var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .student-info .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        h2.tituloTabela {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--table-border);
+        }
+
+        th {
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--table-bg);
+        }
+
+        tr:hover {
+            background-color: rgba(0, 110, 171, 0.05);
+            transition: var(--transition);
+        }
+
+        td:first-child {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        a:hover {
+            color: #004d7a;
+            transform: translateX(5px);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            background: var(--white);
+            color: var(--primary);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--primary);
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 110, 171, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: var(--gray);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1.titulo {
+                font-size: 1.8rem;
+            }
+            
+            h2.tituloTabela {
+                font-size: 1.4rem;
+            }
+            
+            th, td {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 15px;
+            }
+            
+            h1.titulo {
+                font-size: 1.6rem;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .back-btn {
+                padding: 10px 22px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Entrega: A entrega dessa atividade deve ser um link do github.
-
-            Objetivo: Utilizar CSS nas páginas criadas.
-
-
-            HTML: Reproduza duas páginas HTML (‘index.html’, ‘projects.html’):
-            (valor 1.5) - Todas as páginas devem conter menu (com links) que permita a navegação de uma página para outra.                                  
-            (valor 1.5) - Todas as páginas devem conter um título utilizando a tag <h1>.
-            (valor 1.0) - A página ‘Project.html’ deve conter uma tabela com uma linha e duas colunas (“Nome do Projeto” e “Link do projeto”).
-            Obs: Iremos compor essa tabela ao longo do curso.                  
-
-            CSS: Desta vez, se preocupe realmente com a estética das páginas!
-            (valor 3.0) - Utilize regras de css com seletores de classe, id e tag.        
-            (valor 1.0) - As regras devem ser definidas em um arquivo externo com a extensão .css  (linkado).                                                 
-            (valor 2.0) - Utilize pseudo-classes: como o hover, por exemplo.                 
-
-
-            Obs: Outras penalidades podem ser aplicadas. -->
-            
-    <h1 class="titulo">Projetos - Ciência da Computação/SBC</h1>
-    <h2 id="faculdadeId">Centro Universitário FEI</h2>
-    <p>Gustavo Barbosa da Silva - 222250292</p>
-    <h2 class="tituloTabela">Tabela de Laboratórios</h2>
-    <table>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="../img/centro_universitario_RGB-1024x925.png" alt="Centro Universitário FEI">
+            </div>
+            <h1 class="titulo">Laboratórios</h1>
+            <h2 id="faculdadeId">Ciência da Computação | CCP120</h2>
+        </header>
+        
+        <div class="student-info">
+            <p><span class="highlight">Aluno:</span> Gustavo Barbosa da Silva</p>
+            <p><span class="highlight">RA:</span> 222250292</p>
+        </div>
+        
+        <table>
             <tr>
                 <th>Laboratório</th>
                 <th>Link</th>
             </tr>
             <tr>
                 <td>LAB1</td>
-                <td><a href="../LAB1/lab1.html">Entrar no Laboratório 1</a></td>
+                <td><a href="../LAB1/lab1.html"><i class="fas fa-external-link-alt"></i> Entrar no Laboratório 1</a></td>
             </tr>
             <tr>
                 <td>LAB2</td>
-                <td><a href="#">Entrar no Laboratório 2</a></td>
+                <td><a href="#"><i class="fas fa-external-link-alt"></i> Entrar no Laboratório 2</a></td>
             </tr>
-    </table>
+        </table>
+        
+        <div style="text-align: center;">
+            <a href="../index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Voltar para a Página Principal
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 - Ciência da Computação | Centro Universitário FEI</p>
+        <div class="social-links">
+            <a href="https://github.com/gusbarsil"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/gustavobarsil/"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:gustavobarsil@outlook.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
 </body>
 </html>
