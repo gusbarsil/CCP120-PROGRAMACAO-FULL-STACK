@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB 3 - CCP120 | PROGRAMAÇÃO FULL STACK</title>
+
+    <style>
+        body {
+            background: lightgray;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .topo {
+            background: bisque;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            border-color: blue;
+            border-style: outset;
+        }
+
+        .c, .java {
+            flex-shrink: 0;
+        }
+
+        .c img, .java img {
+            width: 350px;
+            height: auto;
+        }
+
+        .tituloPagina {
+            text-align: center;
+        }
+
+        .tituloPagina h1 {
+            margin: 0;
+            color: darkgreen;
+            font-size: 80pt;
+            white-space: nowrap;
+        }
+        .menu {
+            background: lightskyblue;
+            width: 100%;
+            height: 90px;
+            text-align: center;
+        }
+
+        .menu p{
+            position: relative;
+            top: 30%;
+            font-size: 25pt;
+            display: inline;
+            padding: 300px;
+            color: darkred;
+            font-weight: bold;
+        }
+
+        .tituloTextos {
+            width: 100%;
+            text-align: center;
+            font-size: 30pt;
+        }
+
+        .textos {
+            position: relative;
+            left: 15%;
+            width: 70%;
+            justify-content: center;
+        }
+
+        .textos p{
+            color: indigo;
+            font-size: 30pt;
+            text-align: center;
+        }
+
+        .tituloLivros {
+            width: 100%;
+            text-align: center;
+            font-size: 30pt;
+        }
+        .livros {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .livros img{
+            width: 400px;
+        }
+        .tituloVideoMapa {
+            width: 100%;
+            text-align: center;
+            font-size: 30pt;
+            padding-top: 120px;
+            padding-bottom: 50px;
+        }
+
+        .videoMapa{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .tituloContatos{
+            width: 100%;
+            text-align: center;
+            font-size: 30pt;
+            padding-top: 120px;
+            padding-bottom: 50px;
+        }
+        .tabela {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        table {
+            border-style: dashed;
+            text-align: center;
+            border-color: red;
+        }
+        tr, td{
+            border-style: solid;
+            border-color: red;
+            border-width: 1px;
+            width: 200px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="topo">
+        <div class="c"><img src="srcLab3/imgLab3/c++.png" alt="Logo C++"></div>
+        <div class="tituloPagina">
+            <h1>C++ e Java</h1>
+        </div>
+        <div class="java">
+            <img src="srcLab3/imgLab3/java.png" alt="Logo Java">
+        </div>
+    </div>
+
+    <div class="menu">
+        <p>Home</p>
+        <p>Livros</p>
+        <p>Videos</p>
+        <p>Contatos</p>
+    </div>
+
+    <div class="tituloTextos">
+        <h2>Introdução</h2>
+    </div>
+
+    <div class="textos">
+        <div class="texto1">
+            <p>C++ (em português: lê-se "cê mais mais", em inglês lê-se see plus plus) é uma linguagem de programação
+                compilada multi-paradigma (seu suporte inclui linguagem imperativa, orientada a objetos e genérica) e de
+                uso geral. Desde os anos 1990 é uma das linguagens comerciais mais populares, sendo bastante usada
+                também na academia por seu grande desempenho e base de utilizadores.
+            </p>
+        </div>
+        <div class="texto2">
+            <p>Java é uma linguagem de programação orientada a objetos desenvolvida na década de 90 por uma equipe de
+                programadores chefiada por James Gosling, na empresa Sun Microsystems. Em 2008 o Java foi adquirido pela
+                empresa Oracle Corporation.
+            </p>
+        </div>
+        <div class="texto3">
+            <p>Java foi desenvolvida por um grupo de pesquisadores da SUN Microsystems por volta de 1990, pouco antes da
+                explosão da Internet. Essa linguagem possui estrutura muito semelhante à da linguagem C, da qual
+                descende imediatamente. Java tem em comum com a linguagem C++ o fato de ser orientada a objetos e mantém
+                com esta uma alto grau de semelhança.
+            </p>
+        </div>
+    </div>
+
+    <div class="tituloLivros">
+        <h2>Livros</h2>
+    </div>
+
+    <div class="livros">
+        <div class="livro1"><img src="srcLab3/imgLab3/book1.jpg" alt=""></div>
+        <div class="livro1"><img src="srcLab3/imgLab3/book2.jpg" alt=""></div>
+        <div class="livro1"><img src="srcLab3/imgLab3/book3.jpg" alt=""></div>
+    </div>
+
+    <div class="tituloVideoMapa">
+        <h2>Aprenda a programar com Java e C++ na FEI.</h2>
+    </div>
+
+    <div class="videoMapa">
+        <div class="video"><iframe width="760" height="760"
+                src="https://www.youtube.com/embed/4MHAOPxcnsQ?si=H5kdGd7L_M-iqXOq" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <div class="mapa">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.6485569513393!2d-46.581972823848766!3d-23.724241178688285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce4158ef9c7c05%3A0x776b798985695f52!2sFEI%20-%20Campus%20S%C3%A3o%20Bernardo%20do%20Campo!5e0!3m2!1spt-BR!2sbr!4v1756769279118!5m2!1spt-BR!2sbr"
+                width="760" height="760" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <div class="tituloContatos">
+        <h2>Contatos</h2>
+    </div>
+
+    <div class="tabela">
+        <table>
+            <tr>
+                <td><h3>Nome</h3></td>
+                <td><h3>Email</h3></td>
+            </tr>
+            <tr>
+                <td><p>Prof. Dr. Victor Perrone</p></td>
+                <td><p>vperrone@fei.edu.br</p></td>
+            </tr>
+            <tr>
+                <td><p>Prof. Dr. Isaac Jesus da Silva</p></td>
+                <td><p>isaacjesus@fei.edu.br</p></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="sites">
+        <div class="tituloSites">
+            <p>Sites para consultas:</p>
+        </div>
+        <ul>
+            <li>
+                <p>HTML:</p><a href="https://www.w3schools.com/html/">https://www.w3schools.com/html/</a>
+            </li>
+            <li>
+                <p>CSS:</p><a href="https://www.w3schools.com/css/">https://www.w3schools.com/css/</a>
+            </li>
+            <li>
+                <p>JavaScript:</p><a href="https://www.w3schools.com/js/">https://www.w3schools.com/js/</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <div class="c"><img src="srcLab3/imgLab3/html.png" alt=""></div>
+        <div class="footer">
+            <h1>Desejamos um excelente semestre a todos.<br>(Fonte Usada: Comic Sans MS, tamanho 15pt)</h1>
+        </div>
+        <div class="java"><img class="javalogo" src="srcLab3/imgLab3/css.png" alt=""></div>
+    </div>
+</body>
+
+</html>
