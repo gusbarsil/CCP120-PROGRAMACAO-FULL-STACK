@@ -16,7 +16,7 @@
         .topo {
             background: bisque;
             width: 100%;
-            height: 400px;
+            height: 250px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -32,7 +32,7 @@
         }
 
         .c img, .java img {
-            width: 350px;
+            width: 150px;
             height: auto;
         }
 
@@ -43,21 +43,22 @@
         .tituloPagina h1 {
             margin: 0;
             color: darkgreen;
-            font-size: 80pt;
+            font-size: 30pt;
             white-space: nowrap;
         }
         .menu {
             background: lightskyblue;
             width: 100%;
-            height: 90px;
+            height: 60px;
             text-align: center;
         }
 
         .menu p{
             position: relative;
             top: 30%;
-            font-size: 25pt;
+            font-size: 15pt;
             display: inline;
+            justify-content: space-evenly;
             padding: 300px;
             color: darkred;
             font-weight: bold;
@@ -66,7 +67,7 @@
         .tituloTextos {
             width: 100%;
             text-align: center;
-            font-size: 30pt;
+            font-size: 20pt;
         }
 
         .textos {
@@ -78,14 +79,14 @@
 
         .textos p{
             color: indigo;
-            font-size: 30pt;
+            font-size: 16pt;
             text-align: center;
         }
 
         .tituloLivros {
             width: 100%;
             text-align: center;
-            font-size: 30pt;
+            font-size: 20pt;
         }
         .livros {
             display: flex;
@@ -99,7 +100,7 @@
         .tituloVideoMapa {
             width: 100%;
             text-align: center;
-            font-size: 30pt;
+            font-size: 20pt;
             padding-top: 120px;
             padding-bottom: 50px;
         }
@@ -113,7 +114,7 @@
         .tituloContatos{
             width: 100%;
             text-align: center;
-            font-size: 30pt;
+            font-size: 20pt;
             padding-top: 120px;
             padding-bottom: 50px;
         }
@@ -133,6 +134,73 @@
             border-width: 1px;
             width: 200px;
             height: 40px;
+        }
+
+        .sites {
+            background-color: yellow;
+            width: 700px;
+            height: 150px;
+            display: flex;
+            margin: 0 auto; /* Centraliza horizontalmente */
+            padding: 20px;
+            box-sizing: border-box;
+            flex-direction: column; /* Organiza o conteúdo em coluna */
+            justify-content: center; /* Centraliza verticalmente */
+            align-items: center; /* Centraliza horizontalmente */
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px; /* Adiciona bordas arredondadas */
+        }
+
+        .sites ul {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            text-align: center; /* Centraliza o texto */
+        }
+
+        .sites li {
+            list-style-type: none; /* Remove os marcadores padrão */
+            margin: 5px 0;
+        }
+
+        .sites a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        .sites a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: bisque;
+            width: 100%;
+            display: flex;
+            
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .footer h1 {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 15pt;
+            margin: 20px 0;
+        }
+
+        .footer .logo-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .footer img {
+            max-width: 80px;
+            height: auto;
         }
     </style>
 </head>
@@ -236,13 +304,13 @@
         </div>
         <ul>
             <li>
-                <p>HTML:</p><a href="https://www.w3schools.com/html/">https://www.w3schools.com/html/</a>
+                <p>HTML - <a href="https://www.w3schools.com/html/">https://www.w3schools.com/html/</a></p>
             </li>
             <li>
-                <p>CSS:</p><a href="https://www.w3schools.com/css/">https://www.w3schools.com/css/</a>
+                <p>CSS - <a href="https://www.w3schools.com/css/">https://www.w3schools.com/css/</a></p>
             </li>
             <li>
-                <p>JavaScript:</p><a href="https://www.w3schools.com/js/">https://www.w3schools.com/js/</a>
+                <p>JavaScript - <a href="https://www.w3schools.com/js/">https://www.w3schools.com/js/</a></p>
             </li>
         </ul>
     </div>
