@@ -1,0 +1,23 @@
+{
+  "name": "ccp120-programacao-full-stack",
+  "version": "1.0.0",
+  "description": "<h3 align=\"center\">👋 Olá! Bem-vindo ao Repositório da disciplina CCP120</h3>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gusbarsil/CCP120-PROGRAMACAO-FULL-STACK.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gusbarsil/CCP120-PROGRAMACAO-FULL-STACK/issues"
+  },
+  "homepage": "https://github.com/gusbarsil/CCP120-PROGRAMACAO-FULL-STACK#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
