@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Status do Login</title>
+</head>
+<body>
+  <h1><%= status %></h1>
+  <% if (usuario) { %>
+    <p>Bem-vindo(a), <%= usuario %>!</p>
+  <% } %>
+  <a href="/login">Voltar ao login</a>
+</body>
+</html>
