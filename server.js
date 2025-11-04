@@ -50,7 +50,7 @@ app.post('/login', (req, res) => {
 });
 
 // ======== BLOG (LAB9) ========
-const uri = 'mongodb+srv://gustavobarsil:barbosa2202@cluster0.ipnwv3x.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://gustavobarsil:barbosa2202@cluster0.ipnwv3x.mongodb.net/?appName=Cluster0';
 
 MongoClient.connect(uri)
   .then(client => {
@@ -88,7 +88,7 @@ MongoClient.connect(uri)
   .catch(err => console.error('❌ Erro ao conectar no MongoDB:', err));
 
 // ======== SERVIDOR ========
-const PORT = 80;
+const PORT = 1600;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando em http://localhost:${PORT}/`);
 });
