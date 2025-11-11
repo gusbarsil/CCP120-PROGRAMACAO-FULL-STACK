@@ -50,7 +50,7 @@ app.post('/login', (req, res) => {
 });
 
 // ======== BLOG (LAB9) ========
-const uri = 'mongodb+srv://gustavobarsil:barbosa2202@cluster0.ipnwv3x.mongodb.net/?appName=Cluster0';
+const uri = 'mongodb+srv://user:password@cluster0.ipnwv3x.mongodb.net/?appName=Cluster0';
 
 MongoClient.connect(uri)
   .then(client => {
