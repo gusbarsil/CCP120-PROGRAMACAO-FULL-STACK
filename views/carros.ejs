@@ -1,0 +1,11 @@
+<h1>Lista de Carros</h1>
+<ul>
+  <% carros.forEach(c => { %>
+    <li>
+      <strong><%= c.marca %> <%= c.modelo %></strong> - 
+      Ano: <%= c.ano %> | 
+      Disponíveis: <%= c.qtde_disponivel %>
+      <a href="/lab10/vender/<%= c._id %>">Vender</a>
+    </li>
+  <% }) %>
+</ul>

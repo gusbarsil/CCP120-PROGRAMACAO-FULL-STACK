@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 
 const app = express();
 
@@ -55,8 +55,10 @@ const uri = 'mongodb+srv://gustavobarsil:barbosa2202@cluster0.ipnwv3x.mongodb.ne
 MongoClient.connect(uri)
   .then(client => {
     console.log('✅ Conectado ao MongoDB');
-    const db = client.db('blog_bd');
-    const posts = db.collection('posts');
+
+    // ----- Banco de dados do LAB9 -----
+    const db9 = client.db('blog_bd');
+    const posts = db9.collection('posts');
 
     // Página do blog → lista todos os posts
     app.get('/blog', async (req, res) => {
@@ -66,7 +68,7 @@ MongoClient.connect(uri)
 
     // Página para cadastrar novo post
     app.get('/cadastrar_post', (req, res) => {
-      res.sendFile(path.join(__dirname, 'public', 'cadastrar_post.html'));
+      res.sendFile(path.join(__dirname, 'public', 'LAB9', 'cadastrar_post.html'));
     });
 
     // Recebe o formulário de novo post
@@ -84,6 +86,110 @@ MongoClient.connect(uri)
         res.render('resposta_post', { resposta: 'Erro ao cadastrar o post!' });
       }
     });
+
+    // ======== LAB10 - CONCESSIONÁRIA ========
+    const db10 = client.db('concessionaria_bd');
+    const usuarios10 = db10.collection('usuarios');
+    const carros10 = db10.collection('carros');
+
+    // Página inicial do LAB10 (projetos)
+    app.get('/lab10', (req, res) => {
+      res.sendFile(path.join(__dirname, 'public', 'LAB10', 'GerenciarCarros.html'));
+    });
+
+    // ---------- Usuários ----------
+    app.get('/lab10/cadastrar_usuario', (req, res) => {
+      res.sendFile(path.join(__dirname, 'public', 'LAB10', 'CadastroUsuario.html'));
+    });
+
+    app.post('/lab10/cadastrar_usuario', async (req, res) => {
+      const { nome, login, senha } = req.body;
+      try {
+        await usuarios10.insertOne({ nome, login, senha });
+        res.render('resposta_lab10', { mensagem: 'Usuário cadastrado com sucesso!' });
+      } catch {
+        res.render('resposta_lab10', { mensagem: 'Erro ao cadastrar usuário.' });
+      }
+    });
+
+    app.get('/lab10/login', (req, res) => {
+      res.sendFile(path.join(__dirname, 'public', 'LAB10', 'Login.html'));
+    });
+
+    app.post('/lab10/login', async (req, res) => {
+      const { login, senha } = req.body;
+      const user = await usuarios10.findOne({ login, senha });
+      if (user) {
+        res.render('resposta_lab10', { mensagem: `Bem-vindo, ${user.nome}!` });
+      } else {
+        res.render('resposta_lab10', { mensagem: 'Usuário ou senha inválidos.' });
+      }
+    });
+
+    // ---------- Carros ----------
+    app.get('/lab10/carros', async (req, res) => {
+      const lista = await carros10.find().toArray();
+      res.render('carros', { carros: lista });
+    });
+
+    app.get('/lab10/gerenciar_carros', async (req, res) => {
+      const lista = await carros10.find().toArray();
+      res.render('gerenciar_carros', { carros: lista });
+    });
+
+    app.post('/lab10/cadastrar_carro', async (req, res) => {
+      const { marca, modelo, ano, qtde_disponivel } = req.body;
+      try {
+        await carros10.insertOne({
+          marca,
+          modelo,
+          ano: parseInt(ano),
+          qtde_disponivel: parseInt(qtde_disponivel)
+        });
+        res.redirect('/lab10/gerenciar_carros');
+      } catch {
+        res.render('resposta_lab10', { mensagem: 'Erro ao cadastrar carro.' });
+      }
+    });
+
+    app.post('/lab10/atualizar_carro/:id', async (req, res) => {
+      const { id } = req.params;
+      const { marca, modelo, ano, qtde_disponivel } = req.body;
+      await carros10.updateOne(
+        { _id: new ObjectId(id) },
+        { $set: { marca, modelo, ano: parseInt(ano), qtde_disponivel: parseInt(qtde_disponivel) } }
+      );
+      res.redirect('/lab10/gerenciar_carros');
+    });
+
+    app.get('/lab10/remover_carro/:id', async (req, res) => {
+      const { id } = req.params;
+      await carros10.deleteOne({ _id: new ObjectId(id) });
+      res.redirect('/lab10/gerenciar_carros');
+    });
+
+    app.get('/lab10/vender/:id', async (req, res) => {
+      const { id } = req.params;
+      const carro = await carros10.findOne({ _id: new ObjectId(id) });
+
+      if (!carro) {
+        return res.render('resposta_lab10', { mensagem: 'Carro não encontrado.' });
+      }
+
+      if (carro.qtde_disponivel <= 0) {
+        return res.render('resposta_lab10', { mensagem: 'Esgotado!' });
+      }
+
+      await carros10.updateOne(
+        { _id: new ObjectId(id) },
+        { $inc: { qtde_disponivel: -1 } }
+      );
+
+      const novo = await carros10.findOne({ _id: new ObjectId(id) });
+      const msg = novo.qtde_disponivel === 0 ? 'Esgotado!' : 'Venda registrada!';
+      res.render('resposta_lab10', { mensagem: msg });
+    });
+
   })
   .catch(err => console.error('❌ Erro ao conectar no MongoDB:', err));
 

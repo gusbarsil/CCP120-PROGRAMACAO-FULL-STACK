@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciar Carros</title>
+  <link rel="stylesheet" href="/LAB10/style.css">
+</head>
+<body>
+  <h1>Gerenciamento de Carros</h1>
+
+  <form action="/lab10/cadastrar_carro" method="POST">
+    <input type="text" name="marca" placeholder="Marca" required>
+    <input type="text" name="modelo" placeholder="Modelo" required>
+    <input type="number" name="ano" placeholder="Ano" required>
+    <input type="number" name="qtde_disponivel" placeholder="Quantidade" required>
+    <button type="submit">Cadastrar Carro</button>
+  </form>
+
+  <a href="/lab10/carros">Listar Carros</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<h1>Gerenciar Carros</h1>
+<form action="/lab10/cadastrar_carro" method="post">
+  <input type="text" name="marca" placeholder="Marca" required>
+  <input type="text" name="modelo" placeholder="Modelo" required>
+  <input type="number" name="ano" placeholder="Ano" required>
+  <input type="number" name="qtde_disponivel" placeholder="Quantidade" required>
+  <button type="submit">Cadastrar</button>
+</form>
+
+<hr>
+
+<table border="1">
+  <tr>
+    <th>Marca</th>
+    <th>Modelo</th>
+    <th>Ano</th>
+    <th>Quantidade</th>
+    <th>Ações</th>
+  </tr>
+  <% carros.forEach(c => { %>
+    <tr>
+      <td><%= c.marca %></td>
+      <td><%= c.modelo %></td>
+      <td><%= c.ano %></td>
+      <td><%= c.qtde_disponivel %></td>
+      <td>
+        <a href="/lab10/vender/<%= c._id %>">Vender</a> |
+        <a href="/lab10/remover_carro/<%= c._id %>">Remover</a>
+      </td>
+    </tr>
+  <% }) %>
+</table>
